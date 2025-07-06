@@ -46,9 +46,6 @@ public:
   bool send() {
     if (_dataCount == 0) return false;
 
-    // Dynamic JSON sizing
-    const size_t capacity = _nodeID.length() + _dataValues.length() + _timestamps.length() + 100;
-
     JsonDocument doc;
     doc["nodeid"] = _nodeID;
     doc["data"] = _dataValues;
