@@ -59,6 +59,14 @@ public:
 
     String url = _serverURL + "/SendArray?DataToSend=" + _urlEncode(jsonStr);
 
+    // testing
+    if (0) {
+      Serial.println(url);
+      Serial.println(_serverURL + "/SendArray?DataToSend=" + jsonStr);
+      resetBuffer();
+      return 1;
+    }
+
     HTTPClient http;
 #ifdef ESP32
     http.begin(url);

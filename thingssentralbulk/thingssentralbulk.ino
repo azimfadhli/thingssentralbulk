@@ -1,8 +1,9 @@
 #include <thingssentralbulk.h>
 
-const char* ssid = "your_SSID";
-const char* password = "your_PASSWORD";
+const char* ssid = "MyThingssentral";
+const char* password = "12345678";
 const char* serverURL = "http://myIot.com.e";
+float simulatedSensorReading = 0;
 
 // Create multiple bulk senders
 ThingsSentralBulk sensorA(serverURL, "LivingRoom");
@@ -22,8 +23,9 @@ void loop() {
 
   // Sample every second
   if (millis() - lastSample >= 1000) {
-    sensorA.addData(36 /* readSensorA() */);
-    sensorB.addData(25 /* readSensorB() */);
+    sensorA.addData(simulatedSensorReading);
+    sensorB.addData(simulatedSensorReading);
+    simulatedSensorReading++;
     lastSample = millis();
   }
 
